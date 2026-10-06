@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+
+    <link rel="stylesheet" href="task.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="app">
+
+    <!-- HEADER -->
+    <header class="header">
+        <div>
+            <p class="eyebrow">STAY ORGANIZED</p>
+            <h1>To-Do List <span>✓</span></h1>
+            <p class="subtitle">Organize your day and get things done.</p>
+        </div>
+
+        <div class="today-box">
+            <strong id="todayDate">Today</strong>
+            <span>Keep going!</span>
+        </div>
+    </header>
+
+    <!-- ADD TASK -->
+    <section class="add-area">
+        <div class="task-input-box">
+            <span class="plus-icon">+</span>
+            <input
+                type="text"
+                id="taskInput"
+                placeholder="Add a new task..."
+                autocomplete="off"
+                maxlength="200"
+            >
+        </div>
+
+        <div class="datetime-box">
+            <span class="datetime-icon">📅</span>
+            <input
+                type="datetime-local"
+                id="alarmInput"
+                aria-label="Choose alarm date and time"
+                title="Choose alarm date and time"
+            >
+        </div>
+
+        <button id="addButton" class="add-button" type="button">Add</button>
+    </section>
+
+    <div class="alarm-help">
+        <span>⏰ Choose a date and time to set an alarm</span>
+    </div>
+
+    <!-- PROGRESS -->
+    <section class="progress-section">
+        <div class="progress-header">
+            <span>Your Progress</span>
+            <strong id="progressText">0 of 0 completed</strong>
+        </div>
+        <div class="progress-background">
+            <div id="progressBar" class="progress-fill"></div>
+        </div>
+    </section>
+
+    <!-- TASK LIST -->
+    <div id="taskList" class="task-list"></div>
+
+    <!-- EMPTY STATE -->
+    <div id="emptyState" class="empty-state">
+        <div class="empty-circle">✓</div>
+        <h3>No tasks yet</h3>
+        <p>Add a task above to get started.</p>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <span>~ Made By Jasper</span>
+        <span id="taskCount">0 tasks</span>
+    </footer>
+
+</div>
+
+<audio id="alarmSound" src="Alarm07.wav" preload="auto"></audio>
+
+<script src="task.js"></script>
+</body>
+</html>

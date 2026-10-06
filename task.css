@@ -1,0 +1,569 @@
+/* =========================================
+   RESET
+========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* =========================================
+   BODY
+========================================= */
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    font-family: "Inter", sans-serif;
+    background:
+        radial-gradient(circle at 10% 10%, rgba(99, 102, 241, 0.35), transparent 30%),
+        radial-gradient(circle at 90% 90%, rgba(168, 85, 247, 0.30), transparent 30%),
+        linear-gradient(135deg, #111827, #312e81);
+}
+
+/* =========================================
+   MAIN APP
+========================================= */
+.app {
+    width: 100%;
+    max-width: 700px;
+    padding: 32px;
+    background: #ffffff;
+    border-radius: 25px;
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.30);
+}
+
+/* =========================================
+   HEADER
+========================================= */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 28px;
+}
+
+.eyebrow {
+    margin-bottom: 6px;
+    color: #6366f1;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+h1 {
+    color: #111827;
+    font-size: 31px;
+    font-weight: 800;
+}
+
+h1 span {
+    color: #6366f1;
+}
+
+.subtitle {
+    margin-top: 7px;
+    color: #9ca3af;
+    font-size: 12px;
+}
+
+.today-box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+    flex-shrink: 0;
+}
+
+.today-box strong {
+    color: #374151;
+    font-size: 13px;
+}
+
+.today-box span {
+    color: #9ca3af;
+    font-size: 10px;
+}
+
+/* =========================================
+   ADD AREA
+========================================= */
+.add-area {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin-bottom: 8px;
+}
+
+/* =========================================
+   TASK INPUT  (NO MORE SPINNING COLOR ANIMATION)
+========================================= */
+.task-input-box {
+    position: relative;
+    flex: 1;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    border-radius: 16px;
+    background: #e5e7eb;
+    overflow: hidden;
+    padding: 2px;
+    border: 1px solid transparent;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.task-input-box:focus-within {
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.12);
+}
+
+.task-input-box input {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    border-radius: 14px;
+    padding: 0 15px 0 42px;
+    background: #ffffff;
+    color: #111827;
+    font-family: inherit;
+    font-size: 14px;
+}
+
+.task-input-box input::placeholder {
+    color: #9ca3af;
+}
+
+.plus-icon {
+    position: absolute;
+    left: 15px;
+    z-index: 3;
+    color: #6366f1;
+    font-size: 22px;
+    pointer-events: none;
+}
+
+/* =========================================
+   DATE + TIME
+========================================= */
+.datetime-box {
+    position: relative;
+    width: 52px;
+    height: 52px;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    background: #f8f8ff;
+    overflow: hidden;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.datetime-box:hover {
+    border-color: #6366f1;
+    background: #f5f3ff;
+    transform: translateY(-1px);
+}
+
+.datetime-box:focus-within {
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.12);
+}
+
+.datetime-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    font-size: 19px;
+    pointer-events: none;
+}
+
+.datetime-box input {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    opacity: 0;
+    cursor: pointer;
+    font-size: 16px; /* prevents zoom on iOS */
+}
+
+/* =========================================
+   ADD BUTTON
+========================================= */
+.add-button {
+    height: 52px;
+    padding: 0 23px;
+    border: none;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.add-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(99, 102, 241, 0.35);
+}
+
+.add-button:active {
+    transform: scale(0.96);
+}
+
+/* =========================================
+   ALARM HELP
+========================================= */
+.alarm-help {
+    margin-bottom: 25px;
+    color: #9ca3af;
+    font-size: 10px;
+}
+
+.alarm-help span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* =========================================
+   PROGRESS
+========================================= */
+.progress-section {
+    margin-bottom: 20px;
+}
+
+.progress-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    font-size: 12px;
+}
+
+.progress-header span {
+    color: #6b7280;
+}
+
+.progress-header strong {
+    color: #6366f1;
+}
+
+.progress-background {
+    width: 100%;
+    height: 7px;
+    overflow: hidden;
+    border-radius: 20px;
+    background: #eef0f4;
+}
+
+.progress-fill {
+    width: 0%;
+    height: 100%;
+    border-radius: 20px;
+    background: linear-gradient(90deg, #6366f1, #a855f7);
+    transition: width 0.4s ease;
+}
+
+/* =========================================
+   TASK LIST
+========================================= */
+.task-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* =========================================
+   TASK
+========================================= */
+.task {
+    min-height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 13px 14px;
+    border: 1px solid #edf0f4;
+    border-radius: 15px;
+    background: #ffffff;
+    animation: appear 0.25s ease;
+    transition: 0.2s ease;
+}
+
+.task:hover {
+    border-color: #dcdcff;
+    box-shadow: 0 6px 20px rgba(99, 102, 241, 0.08);
+}
+
+/* =========================================
+   ALARM TRIGGERED
+========================================= */
+.task.alarm-triggered {
+    border-color: #f59e0b;
+    background: #fffbeb;
+    animation: alarmPulse 1s ease infinite;
+}
+
+@keyframes alarmPulse {
+    0%   { box-shadow: 0 0 0 rgba(245, 158, 11, 0); }
+    50%  { box-shadow: 0 0 20px rgba(245, 158, 11, 0.35); }
+    100% { box-shadow: 0 0 0 rgba(245, 158, 11, 0); }
+}
+
+/* =========================================
+   TASK LEFT
+========================================= */
+.task-left {
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    flex: 1;
+}
+
+/* =========================================
+   CHECK BUTTON
+========================================= */
+.check-button {
+    width: 23px;
+    height: 23px;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #d1d5db;
+    border-radius: 50%;
+    background: #ffffff;
+    color: transparent;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.check-button:hover {
+    border-color: #6366f1;
+}
+
+.task.completed .check-button {
+    border-color: #6366f1;
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    color: #ffffff;
+}
+
+/* =========================================
+   TASK INFO
+========================================= */
+.task-info {
+    min-width: 0;
+    flex: 1;
+}
+
+.task-title {
+    color: #374151;
+    font-size: 14px;
+    font-weight: 600;
+    word-break: break-word;
+}
+
+.task-status {
+    display: block;
+    margin-top: 4px;
+    color: #9ca3af;
+    font-size: 10px;
+}
+
+.task.completed .task-title {
+    color: #9ca3af;
+    text-decoration: line-through;
+}
+
+/* =========================================
+   TASK DATE / ALARM
+========================================= */
+.task-datetime {
+    display: block;
+    margin-top: 6px;
+    color: #6366f1;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.task-datetime.triggered {
+    color: #f59e0b;
+}
+
+/* =========================================
+   DELETE BUTTON
+========================================= */
+.delete-button {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    color: #c4c7ce;
+    font-size: 22px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.delete-button:hover {
+    color: #ef4444;
+    background: #fff0f0;
+}
+
+/* =========================================
+   EMPTY STATE
+========================================= */
+.empty-state {
+    padding: 35px 20px;
+    text-align: center;
+}
+
+.empty-circle {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 12px;
+    border-radius: 50%;
+    background: #f0efff;
+    color: #6366f1;
+    font-size: 21px;
+}
+
+.empty-state h3 {
+    margin-bottom: 6px;
+    color: #4b5563;
+    font-size: 15px;
+}
+
+.empty-state p {
+    color: #9ca3af;
+    font-size: 12px;
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+.footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-top: 25px;
+    padding-top: 17px;
+    border-top: 1px solid #f0f1f4;
+    color: #9ca3af;
+    font-size: 11px;
+}
+
+/* =========================================
+   ANIMATIONS
+========================================= */
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+@media (max-width: 600px) {
+    body {
+        padding: 12px;
+        align-items: flex-start;
+    }
+
+    .app {
+        margin-top: 12px;
+        padding: 22px;
+        border-radius: 20px;
+    }
+
+    .header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .today-box {
+        align-items: flex-start;
+    }
+
+    h1 {
+        font-size: 25px;
+    }
+
+    .add-area {
+        display: grid;
+        grid-template-columns: 1fr 52px;
+        gap: 9px;
+    }
+
+    .task-input-box {
+        grid-column: 1 / -1;
+    }
+
+    .datetime-box {
+        grid-column: 1;
+    }
+
+    .add-button {
+        grid-column: 2;
+        width: 100%;
+    }
+
+    .task {
+        padding: 12px;
+    }
+
+    .task-left {
+        gap: 10px;
+    }
+
+    .footer {
+        flex-direction: column;
+        gap: 7px;
+    }
+}
+
+@media (max-width: 380px) {
+    .app {
+        padding: 18px;
+    }
+
+    .datetime-box {
+        width: 48px;
+    }
+
+    .add-button {
+        padding: 0 12px;
+        font-size: 12px;
+    }
+}
